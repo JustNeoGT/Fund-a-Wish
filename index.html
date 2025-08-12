@@ -1,18 +1,16 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>WishFundNow – Wünsche erfüllen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <h1>🎁 WishFundNow – Wünsche erfüllen</h1>
+  <h1>🎁 Fund A Wish – Wünsche erfüllen</h1>
 
-  <section id="login-section">
-    <h2>🔑 Login</h2>
-    <input type="text" id="username" placeholder="Benutzername">
-    <input type="password" id="password" placeholder="Passwort">
-    <button onclick="login()">Login</button>
-    <button onclick="logout()" style="display:none;" id="logoutBtn">Logout</button>
-    <p id="loginStatus"></p>
-  </section>
-
-  <section id="wish-form" style="display:none;">
+  <section id="wish-form">
     <h2>Wunsch einreichen</h2>
-    <input type="text" id="wishTitle" placeholder="Wunschtitel (z. B. iPhone 15)">
+    <input type="text" id="wishTitle" placeholder="Wunschtitel (z. B. iPhone 15)">
     <input type="number" id="wishAmount" placeholder="Benötigter Betrag (€)">
     <textarea id="wishDesc" placeholder="Beschreibung"></textarea>
     <button onclick="addWish()">Wunsch hochladen</button>
@@ -30,4 +28,4 @@
 
   <script src="script.js"></script>
 </body>
-
+</html>
