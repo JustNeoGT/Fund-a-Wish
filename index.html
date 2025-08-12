@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>WishFundNow – Wünsche erfüllen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎁 WishFundNow – Wünsche erfüllen</h1>
+
+  <section id="wish-form">
+    <h2>Wunsch einreichen</h2>
+    <input type="text" id="wishTitle" placeholder="Wunschtitel (z. B. iPhone 15)">
+    <input type="number" id="wishAmount" placeholder="Benötigter Betrag (€)">
+    <textarea id="wishDesc" placeholder="Beschreibung"></textarea>
+    <button onclick="addWish()">Wunsch hochladen</button>
+  </section>
+
+  <section id="wish-list">
+    <h2>📝 Wünsche</h2>
+    <div id="wishes"></div>
+  </section>
+
+  <section id="leaderboard">
+    <h2>🏆 Spender-Leaderboard</h2>
+    <ol id="leaders"></ol>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
