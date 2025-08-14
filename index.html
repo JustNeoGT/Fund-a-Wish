@@ -1,31 +1,74 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>WishFundNow – Wünsche erfüllen</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WishFund – Wünsche erfüllen</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="./app.js"></script>
 </head>
 <body>
-  <h1>🎁 Fund A Wish – Wünsche erfüllen</h1>
+  <header class="topbar">
+    <h1>🎁 WishFund</h1>
+    <nav>
+      <button id="btn-login">Anmelden</button>
+      <button id="btn-logout" class="hidden">Abmelden</button>
+    </nav>
+  </header>
 
-  <section id="wish-form">
-    <h2>Wunsch einreichen</h2>
-    <input type="text" id="wishTitle" placeholder="Wunschtitel (z. B. iPhone 15)">
-    <input type="number" id="wishAmount" placeholder="Benötigter Betrag (€)">
-    <textarea id="wishDesc" placeholder="Beschreibung"></textarea>
-    <button onclick="addWish()">Wunsch hochladen</button>
-  </section>
+  <main class="container">
+    <section id="auth" class="card">
+      <h2>Anmelden / Registrieren</h2>
+      <p>Du brauchst einen Account, um Wünsche zu erstellen oder zu spenden.</p>
+      <div class="provider-grid">
+        <button data-provider="google">Mit Google</button>
+        <button data-provider="microsoft">Mit Microsoft</button>
+        <button data-provider="discord">Mit Discord</button>
+      </div>
+      <details>
+        <summary>E-Mail & Passwort</summary>
+        <form id="email-signup" class="stack">
+          <input type="email" id="email" placeholder="E-Mail" required />
+          <input type="password" id="password" placeholder="Passwort (min. 6 Zeichen)" required minlength="6"/>
+          <button type="submit">Weiter</button>
+        </form>
+        <small>Du erhältst ggf. eine Bestätigungs-E-Mail.</small>
+      </details>
+    </section>
 
-  <section id="wish-list">
-    <h2>📝 Wünsche</h2>
-    <div id="wishes"></div>
-  </section>
+    <section id="dashboard" class="hidden">
+      <div class="grid">
+        <section class="card">
+          <h2>Neuen Wunsch erstellen</h2>
+          <form id="wish-form" class="stack">
+            <input type="text" id="wish-title" placeholder="Titel (z. B. Klassenfahrt)" required/>
+            <textarea id="wish-desc" placeholder="Beschreibung" rows="3" required></textarea>
+            <div class="row">
+              <input type="number" id="wish-goal" placeholder="Zielbetrag in EUR (z. B. 250)" min="1" required />
+              <input type="url" id="wish-image" placeholder="Bild-URL (optional)"/>
+            </div>
+            <button type="submit">Wunsch speichern</button>
+          </form>
+        </section>
 
-  <section id="leaderboard">
-    <h2>🏆 Spender-Leaderboard</h2>
-    <ol id="leaders"></ol>
-  </section>
+        <section class="card">
+          <h2>Top‑Spender (Leaderboard)</h2>
+          <ol id="leaderboard"></ol>
+        </section>
+      </div>
 
-  <script src="script.js"></script>
+      <section class="card">
+        <h2>Alle Wünsche</h2>
+        <div id="wish-list" class="wish-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Bezahlen via Stripe. Testmodus möglich. 🛡️</p>
+  </footer>
+
+  <!-- ENV placeholders: Replace in app.js or via bundler -->
 </body>
 </html>
